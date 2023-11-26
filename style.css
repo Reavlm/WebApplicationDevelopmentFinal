@@ -1,0 +1,113 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(241, 241, 240);
+
+}
+
+nav {
+  margin: 4rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 4rem;
+  list-style-type: none;
+}
+
+nav ul li a {
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.header-one {
+  font-family: Arial, Helvetica, sans-serif font-weight: Impact, 'Arial Narrow Bold', sans-serif;
+  font-size: 6.0rem;
+}
+
+h1 {
+  font-size: 5.2rem;
+  font-family: 'Playfair Display';
+  margin: 0;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+  line-height: 1.2em;
+  margin-left: 1rem;
+}
+
+.paragraph-one {
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1.5em;
+  margin-left: 1rem;
+}
+
+.left-col {
+  width: 50%;
+  background-color: rgb(201, 204, 206);
+}
+
+main {
+  background-color: rgb(200, 204, 221);
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  gap: 4rem;
+  margin-left: 12rem;
+}
+
+.learn-button {
+  background-color: black;
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 1.9em;
+  text-decoration: none;
+  padding: 1em;
+  transition: background-color 0.15s;
+
+}
+
+.learn-button:hover {
+  background-color: rgb(115, 130, 244);
+  color: white;
+
+}
+
+.buy-now {
+  font-size: 1.9rem;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 1em;
+  border-radius: 1.9em;
+  transition: background-color 0.15s;
+
+}
+
+.buy-now:hover {
+  background-color: rgb(115, 130, 244);
+  color: white;
+
+}

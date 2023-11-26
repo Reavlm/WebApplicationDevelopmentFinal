@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project</title>
+  <link rel="stylesheet" href="page1.html">
+  <link rel="stylesheet" href="page2.html">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <p class="header-one">Final Project</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="page1.html">About</a></li>
+          <li><a href="page2.html">Services</a></li>
+          <li><a href="page3.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="left-col">
+        <h1>Header for the project</h1>
+        <p class="paragraph-one">Paragraph or text to be inserted</p>
+
+        <div class="buttons">
+          <a href="page1.html" class="learn-button">Button</a>
+          <a href="page2.html" class="buy-now">Button</a>
+        </div>
+      </div>
+      <div class="right-col">
+        <img class="" src="" alt="Picture">
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js">
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Select "Learn More" button
+      const learnButton = document.querySelector('.learn-button');
+
+      // click event listener to the "Learn More" button
+      learnButton.addEventListener('click', function () {
+        // Display an alert when the button is clicked
+        alert('You clicked the Learn More button!');
+        // You can add more functionality here, such as opening a modal or redirecting to another page.
+      });
+    });</script>
+</body>
+
+</html>
