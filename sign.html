@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project</title>
+  <link rel="stylesheet" href="sign.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <p class="header-one">Final Project</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="course.html">Courses</a></li>
+          <li><a href="sign.html">Sign Up</a></li>
+          <li><a href="drop.html">Add/Drop</a></li>
+        </ul>
+      </nav>
+    </header>
+    <form>
+      <h2>Course Sign Up</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <script>
+      function validateForm(event) {
+        event.preventDefault(); // Prevents form from submitting the traditional way
+
+
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (!username || !email || !password) {
+          alert('Please fill in all fields.');
+          return;
+        }
+
+
+        alert('Sign-up successful!');
+        document.getElementById('signupForm').reset(); // Clears the form after submission
+      }
+
+
+    </script>
+</body>
+
+</html>

@@ -12,11 +12,23 @@ body {
   margin: 0 auto;
 }
 
+.logo {
+  width: 100%;
+  margin-left: 5rem;
+
+}
+
+.right-col {
+  background-color: white;
+
+
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(241, 241, 240);
+  background-color: #5fa9da;
 
 }
 
@@ -31,9 +43,10 @@ nav ul {
 }
 
 nav ul li a {
-  font-size: 18px;
+  font-size: 20px;
   color: black;
   text-decoration: none;
+
 }
 
 nav ul li a:hover {
@@ -41,8 +54,12 @@ nav ul li a:hover {
 }
 
 .header-one {
-  font-family: Arial, Helvetica, sans-serif font-weight: Impact, 'Arial Narrow Bold', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  /* or specify the desired font weight */
   font-size: 6.0rem;
+  color: white;
+  margin-left: 10px;
 }
 
 h1 {
@@ -50,13 +67,15 @@ h1 {
   font-family: 'Playfair Display';
   margin: 0;
   font-weight: normal;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.9em;
   line-height: 1.2em;
   margin-left: 1rem;
+  margin-top: 2.7rem;
 }
 
+
 .paragraph-one {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 1.5em;
   margin-left: 1rem;
@@ -64,12 +83,13 @@ h1 {
 
 .left-col {
   width: 50%;
-  background-color: rgb(201, 204, 206);
+  background-color: rgb(230, 233, 236);
 }
 
 main {
-  background-color: rgb(200, 204, 221);
+  background-color: rgb(255, 255, 255);
   display: flex;
+
 }
 
 .buttons {
@@ -86,11 +106,12 @@ main {
   text-decoration: none;
   padding: 1em;
   transition: background-color 0.15s;
+  margin-left: 5rem;
 
 }
 
 .learn-button:hover {
-  background-color: rgb(115, 130, 244);
+  background-color: rgb(89, 167, 224);
   color: white;
 
 }
@@ -107,7 +128,46 @@ main {
 }
 
 .buy-now:hover {
-  background-color: rgb(115, 130, 244);
+  background-color: rgb(89, 167, 224);
   color: white;
 
+}
+
+/* Footer Styles */
+footer {
+  background-color: #5fa9da;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-col {
+  width: 20%;
+}
+
+.footer-col h4 {
+  color: #121111;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.footer-col p,
+.footer-col a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 1.3rem;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
 }

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <link rel="stylesheet" href="drop.css">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <!-- Include your header content here -->
+      <p class="header-one">Apex Academy</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="course.html">Courses</a></li>
+          <li><a href="sign.html">Sign Up</a></li>
+          <li><a href="drop.html">Add/Drop</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Add A Class</h1>
+
+      <!-- Form to add a new class -->
+      <form id="add-class-form">
+        <label for="class-name">Course Name:</label>
+        <input type="text" id="class-name" required>
+        <label for="class-description">Course Description:</label>
+        <textarea id="class-description" required></textarea>
+        <label for="subject-area">Subject Area:</label>
+        <input type="text" id="subject-area" required>
+        <label for="credit-hours">Credit Hours:</label>
+        <input type="number" id="credit-hours" required>
+        <button type="button" onclick="addNewClass()">Add Class</button>
+      </form>
+
+      <h1>Delete A Class</h1>
+
+      <!-- Form to delete a class -->
+      <form id="delete-class-form">
+        <label for="delete-class-name">Course Name:</label>
+        <input type="text" id="delete-class-name" required>
+        <button type="button" onclick="deleteClass()">Delete Class</button>
+      </form>
+
+      <h1>Modify A Class</h1>
+
+      <!-- Form to modify a class -->
+      <form id="modify-class-form">
+        <label for="modify-class-name">Course Name:</label>
+        <input type="text" id="modify-class-name" required>
+        <!-- Add fields for modifications (e.g., new description, new subject area, new credit hours) -->
+        <button type="button" onclick="modifyClass()">Modify Class</button>
+      </form>
+
+      <!-- Container to display the list of classes -->
+      <div id="classes-container">
+        <!-- Class list will be displayed here -->
+      </div>
+    </main>
+  </div>
+  <script>
+    // Sample data for initial classes
+    const initialClasses = [
+      {name: "Math 101", description: "Introduction to Mathematics", area: "Math", hours: 3},
+      // { name: "History 201", description: "World History", area: "History", hours: 4 },
+    ];
+
+    // Function to initialize the classes container with the initial data
+    function initializeClasses() {
+      const classesContainer = document.getElementById("classes-container");
+      classesContainer.innerHTML = generateClassList(initialClasses);
+    }
+
+    // Function to generate HTML for the class list
+    function generateClassList(classes) {
+      return classes.map((cls) => `
+            <div class="class-item">
+                <h2>${cls.name}</h2>
+                <p>${cls.description}</p>
+                <p>Subject Area: ${cls.area}</p>
+                <p>Credit Hours: ${cls.hours}</p>
+            </div>
+        `).join('');
+    }
+
+    // Function to add a new class
+    function addNewClass() {
+      const className = document.getElementById("class-name").value;
+      const classDescription = document.getElementById("class-description").value;
+      const subjectArea = document.getElementById("subject-area").value;
+      const creditHours = document.getElementById("credit-hours").value;
+
+      // Validate input fields
+      if (!className || !classDescription || !subjectArea || !creditHours) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // Add the new class to the list
+      const newClass = {
+        name: className,
+        description: classDescription,
+        area: subjectArea,
+        hours: parseInt(creditHours),
+      };
+
+      initialClasses.push(newClass);
+
+      // Update the classes container
+      const classesContainer = document.getElementById("classes-container");
+      classesContainer.innerHTML = generateClassList(initialClasses);
+
+      // Clear the form fields
+      document.getElementById("add-class-form").reset();
+    }
+
+    // Function to delete a class
+    function deleteClass() {
+      const classNameToDelete = document.getElementById("delete-class-name").value;
+
+      // Find the index of the class to delete
+      const classIndexToDelete = initialClasses.findIndex(cls => cls.name === classNameToDelete);
+
+      // Delete the class if found
+      if (classIndexToDelete !== -1) {
+        initialClasses.splice(classIndexToDelete, 1);
+
+        // Update the classes container
+        const classesContainer = document.getElementById("classes-container");
+        classesContainer.innerHTML = generateClassList(initialClasses);
+      } else {
+        alert("Class not found");
+      }
+
+      // Clear the form field
+      document.getElementById("delete-class-form").reset();
+    }
+
+    // Function to modify a class (in this example, only the description is modified)
+    function modifyClass() {
+      const classNameToModify = document.getElementById("modify-class-name").value;
+
+      // Find the class to modify
+      const classToModify = initialClasses.find(cls => cls.name === classNameToModify);
+
+      // Modify the class if found
+      if (classToModify) {
+        // In this example, we modify the description. You can add more fields as needed.
+        classToModify.description = prompt("Enter the new description:", classToModify.description);
+
+        // Update the classes container
+        const classesContainer = document.getElementById("classes-container");
+        classesContainer.innerHTML = generateClassList(initialClasses);
+      } else {
+        alert("Class not found");
+      }
+
+      // Clear the form field
+      document.getElementById("modify-class-form").reset();
+    }
+
+    // Initialize classes on page load
+    document.addEventListener("DOMContentLoaded", initializeClasses);
+  </script>
+
+</body>
+
+</html>
