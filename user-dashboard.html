@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <p class="header-one">Welcome, <span id="usernamePlaceholder"></span>!</p>
+      <nav>
+        <ul>
+          <li><a href="user-dashboard.html">Dashboard</a></li>
+          <li><a href="enroll-courses.html">Enroll in Courses</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <h2>Your Enrolled Courses</h2>
+      <ul id="enrolledCoursesList">
+        <!-- Display user-specific content here -->
+      </ul>
+      <p id="noEnrollmentMessage"></p>
+    </section>
+    <section>
+      <h2>Shopping Cart</h2>
+      <ul id="shoppingCartList">
+        <!-- Display enrolled courses in the shopping cart -->
+      </ul>
+    </section>
+    <section>
+      <h2>Drop Courses</h2>
+      <ul id="dropCoursesList">
+        <!-- Courses for enrollment -->
+        <li>
+          <strong>Math 101</strong><br>
+          Subject Area: Mathematics<br>
+          Description: Introduction to basic mathematical concepts and techniques. Topics include algebra, calculus, and
+          geometry.<br>
+          Credit Hours: 3<br>
+          <p id="mathStatus"></p>
+          <button onclick="drop('Math 101')">Drop</button>
+          <button onclick="addToCart('Math 101')">Add to Cart</button>
+        </li>
+        <li>
+          <strong>History 101</strong><br>
+          Subject Area: History<br>
+          Description: Survey of world history from ancient civilizations to the modern era. Emphasis on key events,
+          figures, and cultural developments.<br>
+          Credit Hours: 3<br>
+          <p id="historyStatus"></p>
+          <button onclick="drop('History 101')">Drop</button>
+          <button onclick="addToCart('History 101')">Add to Cart</button>
+        </li>
+        <li>
+          <strong>Biology 101</strong><br>
+          Subject Area: Biology<br>
+          Description: Introduction to the principles of biology, including cell structure, genetics, ecology, and
+          evolution.<br>
+          Credit Hours: 3<br>
+          <p id="biologyStatus"></p>
+          <button onclick="drop('Biology 101')">Drop</button>
+          <button onclick="addToCart('Biology 101')">Add to Cart</button>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    // Call the function on page load
+    displayEnrolledCourses();
+
+    // Update the username placeholder
+    const usernamePlaceholder = document.getElementById("usernamePlaceholder");
+    const currentUser = getCurrentUser();
+    if (currentUser) {
+      usernamePlaceholder.textContent = currentUser.username;
+    }
+
+    // Update the status 
+    updateStatus('Math 101', 'mathStatus');
+    updateStatus('History 101', 'historyStatus');
+    updateStatus('Biology 101', 'biologyStatus');
+
+    // Show or hide enrolled courses based on user's enrollment
+    const enrolledCoursesList = document.getElementById("enrolledCoursesList");
+    const noEnrollmentMessage = document.getElementById("noEnrollmentMessage");
+
+    if (currentUser && currentUser.enrolledCourses.length > 0) {
+      // User is enrolled in courses, display them
+      enrolledCoursesList.style.display = "block";
+      noEnrollmentMessage.style.display = "none";
+    } else {
+      // User is not enrolled in any courses, display a message
+      enrolledCoursesList.style.display = "none";
+      noEnrollmentMessage.textContent = "You are not currently enrolled in any courses.";
+      noEnrollmentMessage.style.display = "block";
+    }
+
+    // Function to add a course to the shopping cart
+    function addToCart(courseName) {
+      const shoppingCartList = document.getElementById("shoppingCartList");
+      const listItem = document.createElement("li");
+      listItem.textContent = courseName;
+      listItem.dataset.courseName = courseName; // Store course name as a data attribute
+      const dropButton = document.createElement("button");
+      dropButton.textContent = "Drop";
+      dropButton.onclick = function () {
+        drop(courseName);
+        listItem.remove();
+      };
+      listItem.appendChild(dropButton);
+      shoppingCartList.appendChild(listItem);
+    }
+  </script>
+</body>
+
+</html>

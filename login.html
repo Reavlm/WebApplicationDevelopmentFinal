@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="sign.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <p class="header-one">Apex Academy</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="course.html">Courses</a></li>
+          <li><a href="sign.html">Sign Up</a></li>
+          <li><a href="drop.html">Staff</a></li>
+        </ul>
+      </nav>
+    </header>
+    <form id="loginForm">
+      <h2>Login</h2>
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" name="loginUsername" required>
+
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" name="loginPassword" required>
+
+      <button type="button" onclick="login()">Login</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

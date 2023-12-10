@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll in Courses</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <p class="header-one">Available Courses</p>
+      <nav>
+        <ul>
+          <li><a href="user-dashboard.html">Dashboard</a></li>
+          <li><a href="enroll-courses.html">Enroll in Courses</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <h2>Available Courses</h2>
+      <ul id="availableCoursesList">
+        <!-- Display available courses here -->
+        <li>
+          <strong>Math 101</strong><br>
+          Subject Area: Mathematics<br>
+          Description: Introduction to basic mathematical concepts and techniques. Topics include algebra, calculus, and
+          geometry.<br>
+          Credit Hours: 3<br>
+          <button onclick="enroll('Math 101')">Enroll</button>
+        </li>
+        <li>
+          <strong>History 101</strong><br>
+          Subject Area: History<br>
+          Description: Survey of world history from ancient civilizations to the modern era. Emphasis on key events,
+          figures, and cultural developments.<br>
+          Credit Hours: 3<br>
+          <button onclick="enroll('History 101')">Enroll</button>
+        </li>
+        <li>
+          <strong>Biology 101</strong><br>
+          Subject Area: Biology<br>
+          Description: Introduction to the principles of biology, including cell structure, genetics, ecology, and
+          evolution.<br>
+          Credit Hours: 3<br>
+          <button onclick="enroll('Biology 101')">Enroll</button>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    // Function to enroll in a course
+    function enroll(courseName) {
+      const currentUser = getCurrentUser();
+
+      if (currentUser) {
+        // Check if the user is not already enrolled in the course
+        if (!currentUser.enrolledCourses.includes(courseName)) {
+          currentUser.enrolledCourses.push(courseName);
+
+          // Save the updated user data
+          saveUserData();
+
+          // Refresh the enrolled courses list on the user dashboard
+          displayEnrolledCourses();
+
+          alert(`Successfully enrolled in ${courseName}`);
+        } else {
+          alert(`You are already enrolled in ${courseName}`);
+        }
+      } else {
+        alert("User not found. Please log in again.");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+
+</html>
