@@ -13,7 +13,7 @@ function signup() {
   const user = { username, email, password, role: "user", enrolledCourses: [] }; // Default role is user
   users.push(user);
 
-  // Save user information in local storage for login persistence
+  // Save user information in local storage for login 
   saveUserData();
 
   // Redirect to login page after signup
@@ -64,7 +64,7 @@ function getCurrentUser() {
 function displayEnrolledCourses() {
   const enrolledCoursesList = document.getElementById("enrolledCoursesList");
 
-  // Assume the logged-in user is stored in the 'currentUser' variable (from app.js)
+  // Assume the logged-in user is stored in the 'currentUser' variable
   const currentUser = getCurrentUser();
 
   if (currentUser && currentUser.enrolledCourses && currentUser.enrolledCourses.length > 0) {
